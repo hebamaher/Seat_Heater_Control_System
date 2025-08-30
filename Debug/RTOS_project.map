@@ -1,0 +1,797 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Sun Aug 25 01:06:08 2024
+
+OUTPUT FILE NAME:   <RTOS_project.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000601d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00006146  00039eba  R  X
+  SRAM                  20000000   00008000  00002594  00005a6c  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00006148   00006148    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00005e3e   00005e3e    r-x .text
+  000060ac    000060ac    0000000c   0000000c    r-- .const
+  000060b8    000060b8    00000090   00000090    r-- .cinit
+20000000    20000000    00002598   00000000    rw-
+  20000000    20000000    00002294   00000000    rw- .bss
+  20002298    20002298    00000200   00000000    rw- .stack
+  20002498    20002498    00000100   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00005e3e     
+                  0000026c    00002214     tasks.obj (.text)
+                  00002480    0000100e     queue.obj (.text)
+                  0000348e    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  00003490    00000b10     app.obj (.text)
+                  00003fa0    000007bc     timers.obj (.text)
+                  0000475c    00000700     gpio.obj (.text)
+                  00004e5c    000002b0     port.obj (.text)
+                  0000510c    0000028c     heap_2.obj (.text)
+                  00005398    000001c8     uart0.obj (.text)
+                  00005560    00000184     heater.obj (.text)
+                  000056e4    00000148     adc.obj (.text)
+                  0000582c    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.asm.obj (.text)
+                  00005962    0000012a     list.obj (.text)
+                  00005a8c    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00005b88    000000da     portasm.obj (.text)
+                  00005c62    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00005cfe    00000096                                   : ull_div_t2.asm.obj (.text)
+                  00005d94    0000007a                                   : memset_t2.asm.obj (.text)
+                  00005e0e    0000006e                                   : ll_div_t2.asm.obj (.text)
+                  00005e7c    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00005ee4    00000058     lm35_sensor.obj (.text)
+                  00005f3c    00000054     GPTM.obj (.text)
+                  00005f90    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.asm.obj (.text)
+                  00005fd8    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000601c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00006050    00000020                                   : u_tofd_t2.asm.obj (.text)
+                  00006070    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000607e    0000000c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000608a    0000000c     main.obj (.text)
+                  00006096    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000060a2    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000060a6    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    000060ac    0000000c     
+                  000060ac    00000008     port.obj (.const)
+                  000060b4    00000004     tasks.obj (.const)
+
+.cinit     0    000060b8    00000090     
+                  000060b8    00000067     (.cinit..data.load) [load image, compression = lzss]
+                  0000611f    00000001     --HOLE-- [fill = 0]
+                  00006120    0000000c     (__TI_handler_table)
+                  0000612c    00000004     --HOLE-- [fill = 0]
+                  00006130    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00006138    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    00002294     UNINITIALIZED
+                  20000000    00001fc0     heap_2.obj (.bss:ucHeap)
+                  20001fc0    000000a0     tasks.obj (.bss:pxReadyTasksLists)
+                  20002060    00000050     (.common:DiagnosticsArray)
+                  200020b0    00000038     (.common:ullTasksExecutionTime)
+                  200020e8    00000038     (.common:ullTasksInTime)
+                  20002120    00000038     (.common:ullTasksOutTime)
+                  20002158    00000038     (.common:ullTasksTotalTime)
+                  20002190    00000014     timers.obj (.bss:xActiveTimerList1)
+                  200021a4    00000014     timers.obj (.bss:xActiveTimerList2)
+                  200021b8    00000014     tasks.obj (.bss:xDelayedTaskList1)
+                  200021cc    00000014     tasks.obj (.bss:xDelayedTaskList2)
+                  200021e0    00000014     tasks.obj (.bss:xPendingReadyList)
+                  200021f4    00000014     tasks.obj (.bss:xSuspendedTaskList)
+                  20002208    00000014     tasks.obj (.bss:xTasksWaitingTermination)
+                  2000221c    00000008     tasks.obj (.bss)
+                  20002224    00000008     timers.obj (.bss)
+                  2000222c    00000008     heap_2.obj (.bss:xEnd)
+                  20002234    00000008     heap_2.obj (.bss:xStart)
+                  2000223c    00000004     (.common:DriverControlTempTaskHandler)
+                  20002240    00000004     (.common:DriverDisplayStateTaskHandler)
+                  20002244    00000004     (.common:DriverHeatingTaskHandler)
+                  20002248    00000004     (.common:DriverMonitorTempTaskHandler)
+                  2000224c    00000004     (.common:DriverSeatButtonTaskHandler)
+                  20002250    00000004     (.common:DriverSeatFailureHandlingTaskHandler)
+                  20002254    00000004     (.common:PassengerControlTempTaskHandler)
+                  20002258    00000004     (.common:PassengerDisplayStateTaskHandler)
+                  2000225c    00000004     (.common:PassengerHeatingTaskHandler)
+                  20002260    00000004     (.common:PassengerMonitorTempTaskHandler)
+                  20002264    00000004     (.common:PassengerSeatButtonTaskHandler)
+                  20002268    00000004     (.common:PassengerSeatFailureHandlingTaskHandler)
+                  2000226c    00000004     (.common:RunTimeMeasurementsTaskHandler)
+                  20002270    00000004     (.common:desired_temp_mutex)
+                  20002274    00000004     (.common:driver_seat_failure_queue)
+                  20002278    00000004     (.common:heater_intensity_mutex)
+                  2000227c    00000004     (.common:passenger_seat_failure_queue)
+                  20002280    00000004     (.common:uart_mutex)
+                  20002284    00000004     (.common:xDriverButtonSemaphore1)
+                  20002288    00000004     (.common:xDriverButtonSemaphore2)
+                  2000228c    00000004     (.common:xHeaterIntensitySemaphore)
+                  20002290    00000004     (.common:xPassengerButtonSemaphore)
+
+.data      0    20002498    00000100     UNINITIALIZED
+                  20002498    00000034     tasks.obj (.data)
+                  200024cc    00000010     app.obj (.data:driver_seat_button_task_parameters)
+                  200024dc    00000010     app.obj (.data:driver_seat_control_task_parameters)
+                  200024ec    00000010     app.obj (.data:driver_seat_display_task_parameters)
+                  200024fc    00000010     app.obj (.data:passenger_seat_button_task_parameters)
+                  2000250c    00000010     app.obj (.data:passenger_seat_control_task_parameters)
+                  2000251c    00000010     app.obj (.data:passenger_seat_display_task_parameters)
+                  2000252c    0000000c     app.obj (.data:driver_seat_failuer_handling_task_parameters)
+                  20002538    0000000c     app.obj (.data:passenger_seat_failuer_handling_task_parameters)
+                  20002544    0000000c     port.obj (.data)
+                  20002550    0000000c     timers.obj (.data)
+                  2000255c    0000000b     app.obj (.data)
+                  20002567    00000001     --HOLE--
+                  20002568    00000008     app.obj (.data:driver_seat_heating_task_parameters)
+                  20002570    00000008     app.obj (.data:driver_seat_monitor_task_parameters)
+                  20002578    00000008     heap_2.obj (.data)
+                  20002580    00000008     app.obj (.data:passenger_seat_heating_task_parameters)
+                  20002588    00000008     app.obj (.data:passenger_seat_monitor_task_parameters)
+                  20002590    00000004     app.obj (.data:driver_heater)
+                  20002594    00000004     app.obj (.data:passenger_heater)
+
+.stack     0    20002298    00000200     UNINITIALIZED
+                  20002298    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000229c    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12      620       0      
+       main.obj                       12      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         24      620       0      
+                                                               
+    .\APP\
+       app.obj                        2832    0         563    
+    +--+------------------------------+-------+---------+---------+
+       Total:                         2832    0         563    
+                                                               
+    .\FreeRTOSv202212.01\FreeRTOS\Source\
+       tasks.obj                      8724    4         320    
+       queue.obj                      4110    0         0      
+       timers.obj                     1980    0         60     
+       list.obj                       298     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         15112   4         380    
+                                                               
+    .\FreeRTOSv202212.01\FreeRTOS\Source\portable\CCS\ARM_CM4F\
+       port.obj                       688     8         12     
+       portasm.obj                    218     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         906     8         12     
+                                                               
+    .\FreeRTOSv202212.01\FreeRTOS\Source\portable\MemMang\
+       heap_2.obj                     652     0         8152   
+    +--+------------------------------+-------+---------+---------+
+       Total:                         652     0         8152   
+                                                               
+    .\HAL\Heater\
+       heater.obj                     388     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         388     0         0      
+                                                               
+    .\HAL\LM35\
+       lm35_sensor.obj                88      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         88      0         0      
+                                                               
+    .\MCAL\ADC\
+       adc.obj                        328     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         328     0         0      
+                                                               
+    .\MCAL\GPIO\
+       gpio.obj                       1792    0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         1792    0         0      
+                                                               
+    .\MCAL\GPTM\
+       GPTM.obj                       84      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         84      0         0      
+                                                               
+    .\MCAL\UART\
+       uart0.obj                      456     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         456     0         0      
+                                                               
+    C:\ti\ccs1260\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_div_t2.asm.obj              310     0         0      
+       fd_mul_t2.asm.obj              252     0         0      
+       memcpy_t2.asm.obj              156     0         0      
+       ull_div_t2.asm.obj             150     0         0      
+       memset_t2.asm.obj              122     0         0      
+       ll_div_t2.asm.obj              110     0         0      
+       copy_decompress_lzss.c.obj     104     0         0      
+       fd_toi_t2.asm.obj              72      0         0      
+       autoinit.c.obj                 68      0         0      
+       boot_cortex_m.c.obj            52      0         0      
+       u_tofd_t2.asm.obj              32      0         0      
+       copy_decompress_none.c.obj     14      0         0      
+       copy_zero_init.c.obj           12      0         0      
+       exit.c.obj                     4       0         0      
+       pre_init.c.obj                 4       0         0      
+       div0.asm.obj                   2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         1464    0         0      
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       139       0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   24126   771       9619   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00006138 records: 2, size/record: 8, table size: 16
+	.data: load addr=000060b8, load size=00000067 bytes, run addr=20002498, run size=00000100 bytes, compression=lzss
+	.bss: load addr=00006130, load size=00000008 bytes, run addr=20000000, run size=00002294 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00006120 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                           
+-------   ----                                           
+0000576f  ADC0_Init                                      
+00005789  ADC0_ReadChannel                               
+00003491  APP_Init                                       
+000036dd  APP_Start                                      
+000060a7  C$$EXIT                                        
+20002060  DiagnosticsArray                               
+20002564  Diagnostics_index                              
+2000223c  DriverControlTempTaskHandler                   
+20002240  DriverDisplayStateTaskHandler                  
+20002244  DriverHeatingTaskHandler                       
+20002248  DriverMonitorTempTaskHandler                   
+2000224c  DriverSeatButtonTaskHandler                    
+20002250  DriverSeatFailureHandlingTaskHandler           
+00003e91  GPIOPortA_Handler                              
+00003e35  GPIOPortF_Handler                              
+00004801  GPIO_BlueLedOff                                
+000047dd  GPIO_BlueLedOn                                 
+00004825  GPIO_BlueLedToggle                             
+0000475d  GPIO_BuiltinButtonsLedsInit                    
+0000480d  GPIO_GreenLedOff                               
+000047e9  GPIO_GreenLedOn                                
+00004831  GPIO_GreenLedToggle                            
+000047f5  GPIO_RedLedOff                                 
+000047d1  GPIO_RedLedOn                                  
+00004819  GPIO_RedLedToggle                              
+0000485b  GPIO_SW1EdgeTriggeredInterruptInit             
+0000483d  GPIO_SW1GetState                               
+000048a9  GPIO_SW2EdgeTriggeredInterruptInit             
+00004847  GPIO_SW2GetState                               
+000048f7  GPIO_SW3EdgeTriggeredInterruptInit             
+00004851  GPIO_SW3GetState                               
+000056e5  GPIO_SetupADCPins                              
+00004d1d  GPIO_readPin                                   
+000049a9  GPIO_setupPinDirectionAndMode                  
+00004db9  GPIO_togglePin                                 
+00004c95  GPIO_writePin                                  
+00005f3d  GPTM_WTimer0Init                               
+00005f6d  GPTM_WTimer0Read                               
+00005561  HEATER_Init                                    
+0000568b  HEATER_setHeatingIntensity                     
+00005ee5  LM35_getTemperature                            
+00004e25  Mcu_init                                       
+20002254  PassengerControlTempTaskHandler                
+20002258  PassengerDisplayStateTaskHandler               
+2000225c  PassengerHeatingTaskHandler                    
+20002260  PassengerMonitorTempTaskHandler                
+20002264  PassengerSeatButtonTaskHandler                 
+20002268  PassengerSeatFailureHandlingTaskHandler        
+00006097  ResetISR                                       
+2000226c  RunTimeMeasurementsTaskHandler                 
+000053ef  UART0_Init                                     
+0000544b  UART0_ReceiveByte                              
+0000542f  UART0_SendByte                                 
+00005481  UART0_SendInteger                              
+0000545b  UART0_SendString                               
+20002498  __STACK_END                                    
+00000200  __STACK_SIZE                                   
+20002498  __STACK_TOP                                    
+00006138  __TI_CINIT_Base                                
+00006148  __TI_CINIT_Limit                               
+00006120  __TI_Handler_Table_Base                        
+0000612c  __TI_Handler_Table_Limit                       
+00005fd9  __TI_auto_init_nobinit_nopinit                 
+00005e7d  __TI_decompress_lzss                           
+00006071  __TI_decompress_none                           
+ffffffff  __TI_pprof_out_hndl                            
+ffffffff  __TI_prof_data_size                            
+ffffffff  __TI_prof_data_start                           
+00000000  __TI_static_base__                             
+0000607f  __TI_zero_init                                 
+00005f91  __aeabi_d2iz                                   
+0000582d  __aeabi_ddiv                                   
+00005a8d  __aeabi_dmul                                   
+0000348f  __aeabi_idiv0                                  
+0000348f  __aeabi_ldiv0                                  
+00005e0f  __aeabi_ldivmod                                
+00005d95  __aeabi_memclr                                 
+00005d95  __aeabi_memclr4                                
+00005d95  __aeabi_memclr8                                
+00005c63  __aeabi_memcpy                                 
+00005c63  __aeabi_memcpy4                                
+00005c63  __aeabi_memcpy8                                
+00005d97  __aeabi_memset                                 
+00005d97  __aeabi_memset4                                
+00005d97  __aeabi_memset8                                
+00006051  __aeabi_ui2d                                   
+00005cff  __aeabi_uldivmod                               
+ffffffff  __binit__                                      
+ffffffff  __c_args__                                     
+UNDEFED   __mpu_init                                     
+20002298  __stack                                        
+20000000  __start___llvm_prf_cnts                        
+20000000  __stop___llvm_prf_cnts                         
+0000601d  _c_int00_noargs                                
+UNDEFED   _system_post_cinit                             
+000060a3  _system_pre_init                               
+000060a7  abort                                          
+ffffffff  binit                                          
+20002270  desired_temp_mutex                             
+20002565  driver_error_code                              
+20002590  driver_heater                                  
+200024cc  driver_seat_button_task_parameters             
+200024dc  driver_seat_control_task_parameters            
+20002560  driver_seat_current_temp                       
+200024ec  driver_seat_display_task_parameters            
+2000252c  driver_seat_failuer_handling_task_parameters   
+20002274  driver_seat_failure_queue                      
+20002562  driver_seat_heater_intensity                   
+2000255c  driver_seat_heater_level                       
+20002568  driver_seat_heating_task_parameters            
+20002570  driver_seat_monitor_task_parameters            
+2000255d  driver_seat_prev_heater_level                  
+00000000  g_pfnVectors                                   
+20002278  heater_intensity_mutex                         
+0000608b  main                                           
+00005c63  memcpy                                         
+00005d9d  memset                                         
+20002566  passenger_error_code                           
+20002594  passenger_heater                               
+200024fc  passenger_seat_button_task_parameters          
+2000250c  passenger_seat_control_task_parameters         
+20002561  passenger_seat_current_temp                    
+2000251c  passenger_seat_display_task_parameters         
+20002538  passenger_seat_failuer_handling_task_parameters
+2000227c  passenger_seat_failure_queue                   
+20002563  passenger_seat_heater_intensity                
+2000255e  passenger_seat_heater_level                    
+20002580  passenger_seat_heating_task_parameters         
+20002588  passenger_seat_monitor_task_parameters         
+2000255f  passenger_seat_prev_heater_level               
+00000cd1  pcTaskGetName                                  
+00004205  pcTimerGetName                                 
+000052f9  pvPortCalloc                                   
+0000510d  pvPortMalloc                                   
+00001b35  pvTaskIncrementMutexHeldCount                  
+00004669  pvTimerGetTimerID                              
+20002498  pxCurrentTCB                                   
+00004e5d  pxPortInitialiseStack                          
+00005651  rgb_allLedsOff                                 
+00005607  rgb_blueLedOFF                                 
+000055cb  rgb_blueLedON                                  
+0000563f  rgb_blueLedToggle                              
+000055f3  rgb_greenLedOFF                                
+000055b7  rgb_greenLedON                                 
+0000562d  rgb_greenLedToggle                             
+000055df  rgb_redLedOFF                                  
+000055a3  rgb_redLedON                                   
+0000561b  rgb_redLedToggle                               
+20002280  uart_mutex                                     
+000060ac  ulMaxSyscallInterruptPriority                  
+00005b99  ulPortGetIPSR                                  
+00001b4d  ulTaskGenericNotifyTake                        
+00002345  ulTaskGenericNotifyValueClear                  
+200020b0  ullTasksExecutionTime                          
+200020e8  ullTasksInTime                                 
+20002120  ullTasksOutTime                                
+20002158  ullTasksTotalTime                              
+00005a45  uxListRemove                                   
+00003109  uxQueueMessagesWaiting                         
+00003167  uxQueueMessagesWaitingFromISR                  
+00003133  uxQueueSpacesAvailable                         
+00000cb9  uxTaskGetNumberOfTasks                         
+00001b13  uxTaskResetEventItemValue                      
+000041cb  uxTimerGetReloadMode                           
+000060b4  uxTopUsedPriority                              
+00003729  vButtonTask                                    
+00003979  vControlTemperatureTask                        
+00003cb5  vDisplayStateTask                              
+00003b6d  vFailureHandlingTask                           
+00003b39  vHeatingTask                                   
+00005963  vListInitialise                                
+00005993  vListInitialiseItem                            
+000059df  vListInsert                                    
+000059a3  vListInsertEnd                                 
+0000379d  vMonitorTemperatureTask                        
+00005c55  vPortEnableVFP                                 
+00004fa1  vPortEndScheduler                              
+00004fc5  vPortEnterCritical                             
+00005007  vPortExitCritical                              
+00005233  vPortFree                                      
+000052f7  vPortInitialiseBlocks                          
+00005c11  vPortSVCHandler                                
+00005059  vPortSetupTimerInterrupt                       
+00005c31  vPortStartFirstTask                            
+00005075  vPortValidateInterruptPriority                 
+00003191  vQueueDelete                                   
+00003433  vQueueWaitForMessageRestricted                 
+00003da9  vRunTimeMeasurementsTask                       
+00000685  vTaskDelay                                     
+000004bf  vTaskDelete                                    
+00000ab9  vTaskEndScheduler                              
+0000212d  vTaskGenericNotifyGiveFromISR                  
+00001551  vTaskInternalSetTimeOutState                   
+00001629  vTaskMissedYield                               
+00001115  vTaskPlaceOnEventList                          
+000011f5  vTaskPlaceOnEventListRestricted                
+00001155  vTaskPlaceOnUnorderedEventList                 
+000019c9  vTaskPriorityDisinheritAfterTimeout            
+000013e5  vTaskRemoveFromUnorderedEventList              
+00000849  vTaskResume                                    
+00000f4f  vTaskSetApplicationTaskTag                     
+0000151f  vTaskSetTimeOutState                           
+00000a29  vTaskStartScheduler                            
+000006e9  vTaskSuspend                                   
+00000ad5  vTaskSuspendAll                                
+00001025  vTaskSwitchContext                             
+00004145  vTimerSetReloadMode                            
+00004697  vTimerSetTimerID                               
+20002284  xDriverButtonSemaphore1                        
+20002288  xDriverButtonSemaphore2                        
+2000228c  xHeaterIntensitySemaphore                      
+20002290  xPassengerButtonSemaphore                      
+000052f1  xPortGetFreeHeapSize                           
+00005bb1  xPortPendSVHandler                             
+00004ee9  xPortStartScheduler                            
+00005033  xPortSysTickHandler                            
+00002667  xQueueCreateMutex                              
+00002581  xQueueGenericCreate                            
+00002481  xQueueGenericReset                             
+00002693  xQueueGenericSend                              
+0000284d  xQueueGenericSendFromISR                       
+00002985  xQueueGiveFromISR                              
+0000339f  xQueueIsQueueEmptyFromISR                      
+000033f9  xQueueIsQueueFullFromISR                       
+00002dd5  xQueuePeek                                     
+00003059  xQueuePeekFromISR                              
+00002aa9  xQueueReceive                                  
+00002f53  xQueueReceiveFromISR                           
+00002c21  xQueueSemaphoreTake                            
+00000fd7  xTaskCallApplicationTaskHook                   
+00000d15  xTaskCatchUpTicks                              
+0000157d  xTaskCheckForTimeOut                           
+0000026d  xTaskCreate                                    
+00000593  xTaskDelayUntil                                
+00001cf1  xTaskGenericNotify                             
+00001ed7  xTaskGenericNotifyFromISR                      
+000022dd  xTaskGenericNotifyStateClear                   
+00001c09  xTaskGenericNotifyWait                         
+00000f75  xTaskGetApplicationTaskTag                     
+00000f9d  xTaskGetApplicationTaskTagFromISR              
+00001731  xTaskGetCurrentTaskHandle                      
+00001741  xTaskGetSchedulerState                         
+00000c95  xTaskGetTickCount                              
+00000ca5  xTaskGetTickCountFromISR                       
+00000d79  xTaskIncrementTick                             
+000018b5  xTaskPriorityDisinherit                        
+00001771  xTaskPriorityInherit                           
+00001279  xTaskRemoveFromEventList                       
+00000ae9  xTaskResumeAll                                 
+00000921  xTaskResumeFromISR                             
+00003fdf  xTimerCreate                                   
+00003fa1  xTimerCreateTimerTask                          
+0000407d  xTimerGenericCommand                           
+000041d7  xTimerGetExpiryTime                            
+0000411f  xTimerGetPeriod                                
+0000418f  xTimerGetReloadMode                            
+000040fd  xTimerGetTimerDaemonTaskHandle                 
+0000462d  xTimerIsTimerActive                            
+000046fb  xTimerPendFunctionCall                         
+000046c5  xTimerPendFunctionCallFromISR                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                           
+-------   ----                                           
+00000000  __TI_static_base__                             
+00000000  g_pfnVectors                                   
+00000200  __STACK_SIZE                                   
+0000026d  xTaskCreate                                    
+000004bf  vTaskDelete                                    
+00000593  xTaskDelayUntil                                
+00000685  vTaskDelay                                     
+000006e9  vTaskSuspend                                   
+00000849  vTaskResume                                    
+00000921  xTaskResumeFromISR                             
+00000a29  vTaskStartScheduler                            
+00000ab9  vTaskEndScheduler                              
+00000ad5  vTaskSuspendAll                                
+00000ae9  xTaskResumeAll                                 
+00000c95  xTaskGetTickCount                              
+00000ca5  xTaskGetTickCountFromISR                       
+00000cb9  uxTaskGetNumberOfTasks                         
+00000cd1  pcTaskGetName                                  
+00000d15  xTaskCatchUpTicks                              
+00000d79  xTaskIncrementTick                             
+00000f4f  vTaskSetApplicationTaskTag                     
+00000f75  xTaskGetApplicationTaskTag                     
+00000f9d  xTaskGetApplicationTaskTagFromISR              
+00000fd7  xTaskCallApplicationTaskHook                   
+00001025  vTaskSwitchContext                             
+00001115  vTaskPlaceOnEventList                          
+00001155  vTaskPlaceOnUnorderedEventList                 
+000011f5  vTaskPlaceOnEventListRestricted                
+00001279  xTaskRemoveFromEventList                       
+000013e5  vTaskRemoveFromUnorderedEventList              
+0000151f  vTaskSetTimeOutState                           
+00001551  vTaskInternalSetTimeOutState                   
+0000157d  xTaskCheckForTimeOut                           
+00001629  vTaskMissedYield                               
+00001731  xTaskGetCurrentTaskHandle                      
+00001741  xTaskGetSchedulerState                         
+00001771  xTaskPriorityInherit                           
+000018b5  xTaskPriorityDisinherit                        
+000019c9  vTaskPriorityDisinheritAfterTimeout            
+00001b13  uxTaskResetEventItemValue                      
+00001b35  pvTaskIncrementMutexHeldCount                  
+00001b4d  ulTaskGenericNotifyTake                        
+00001c09  xTaskGenericNotifyWait                         
+00001cf1  xTaskGenericNotify                             
+00001ed7  xTaskGenericNotifyFromISR                      
+0000212d  vTaskGenericNotifyGiveFromISR                  
+000022dd  xTaskGenericNotifyStateClear                   
+00002345  ulTaskGenericNotifyValueClear                  
+00002481  xQueueGenericReset                             
+00002581  xQueueGenericCreate                            
+00002667  xQueueCreateMutex                              
+00002693  xQueueGenericSend                              
+0000284d  xQueueGenericSendFromISR                       
+00002985  xQueueGiveFromISR                              
+00002aa9  xQueueReceive                                  
+00002c21  xQueueSemaphoreTake                            
+00002dd5  xQueuePeek                                     
+00002f53  xQueueReceiveFromISR                           
+00003059  xQueuePeekFromISR                              
+00003109  uxQueueMessagesWaiting                         
+00003133  uxQueueSpacesAvailable                         
+00003167  uxQueueMessagesWaitingFromISR                  
+00003191  vQueueDelete                                   
+0000339f  xQueueIsQueueEmptyFromISR                      
+000033f9  xQueueIsQueueFullFromISR                       
+00003433  vQueueWaitForMessageRestricted                 
+0000348f  __aeabi_idiv0                                  
+0000348f  __aeabi_ldiv0                                  
+00003491  APP_Init                                       
+000036dd  APP_Start                                      
+00003729  vButtonTask                                    
+0000379d  vMonitorTemperatureTask                        
+00003979  vControlTemperatureTask                        
+00003b39  vHeatingTask                                   
+00003b6d  vFailureHandlingTask                           
+00003cb5  vDisplayStateTask                              
+00003da9  vRunTimeMeasurementsTask                       
+00003e35  GPIOPortF_Handler                              
+00003e91  GPIOPortA_Handler                              
+00003fa1  xTimerCreateTimerTask                          
+00003fdf  xTimerCreate                                   
+0000407d  xTimerGenericCommand                           
+000040fd  xTimerGetTimerDaemonTaskHandle                 
+0000411f  xTimerGetPeriod                                
+00004145  vTimerSetReloadMode                            
+0000418f  xTimerGetReloadMode                            
+000041cb  uxTimerGetReloadMode                           
+000041d7  xTimerGetExpiryTime                            
+00004205  pcTimerGetName                                 
+0000462d  xTimerIsTimerActive                            
+00004669  pvTimerGetTimerID                              
+00004697  vTimerSetTimerID                               
+000046c5  xTimerPendFunctionCallFromISR                  
+000046fb  xTimerPendFunctionCall                         
+0000475d  GPIO_BuiltinButtonsLedsInit                    
+000047d1  GPIO_RedLedOn                                  
+000047dd  GPIO_BlueLedOn                                 
+000047e9  GPIO_GreenLedOn                                
+000047f5  GPIO_RedLedOff                                 
+00004801  GPIO_BlueLedOff                                
+0000480d  GPIO_GreenLedOff                               
+00004819  GPIO_RedLedToggle                              
+00004825  GPIO_BlueLedToggle                             
+00004831  GPIO_GreenLedToggle                            
+0000483d  GPIO_SW1GetState                               
+00004847  GPIO_SW2GetState                               
+00004851  GPIO_SW3GetState                               
+0000485b  GPIO_SW1EdgeTriggeredInterruptInit             
+000048a9  GPIO_SW2EdgeTriggeredInterruptInit             
+000048f7  GPIO_SW3EdgeTriggeredInterruptInit             
+000049a9  GPIO_setupPinDirectionAndMode                  
+00004c95  GPIO_writePin                                  
+00004d1d  GPIO_readPin                                   
+00004db9  GPIO_togglePin                                 
+00004e25  Mcu_init                                       
+00004e5d  pxPortInitialiseStack                          
+00004ee9  xPortStartScheduler                            
+00004fa1  vPortEndScheduler                              
+00004fc5  vPortEnterCritical                             
+00005007  vPortExitCritical                              
+00005033  xPortSysTickHandler                            
+00005059  vPortSetupTimerInterrupt                       
+00005075  vPortValidateInterruptPriority                 
+0000510d  pvPortMalloc                                   
+00005233  vPortFree                                      
+000052f1  xPortGetFreeHeapSize                           
+000052f7  vPortInitialiseBlocks                          
+000052f9  pvPortCalloc                                   
+000053ef  UART0_Init                                     
+0000542f  UART0_SendByte                                 
+0000544b  UART0_ReceiveByte                              
+0000545b  UART0_SendString                               
+00005481  UART0_SendInteger                              
+00005561  HEATER_Init                                    
+000055a3  rgb_redLedON                                   
+000055b7  rgb_greenLedON                                 
+000055cb  rgb_blueLedON                                  
+000055df  rgb_redLedOFF                                  
+000055f3  rgb_greenLedOFF                                
+00005607  rgb_blueLedOFF                                 
+0000561b  rgb_redLedToggle                               
+0000562d  rgb_greenLedToggle                             
+0000563f  rgb_blueLedToggle                              
+00005651  rgb_allLedsOff                                 
+0000568b  HEATER_setHeatingIntensity                     
+000056e5  GPIO_SetupADCPins                              
+0000576f  ADC0_Init                                      
+00005789  ADC0_ReadChannel                               
+0000582d  __aeabi_ddiv                                   
+00005963  vListInitialise                                
+00005993  vListInitialiseItem                            
+000059a3  vListInsertEnd                                 
+000059df  vListInsert                                    
+00005a45  uxListRemove                                   
+00005a8d  __aeabi_dmul                                   
+00005b99  ulPortGetIPSR                                  
+00005bb1  xPortPendSVHandler                             
+00005c11  vPortSVCHandler                                
+00005c31  vPortStartFirstTask                            
+00005c55  vPortEnableVFP                                 
+00005c63  __aeabi_memcpy                                 
+00005c63  __aeabi_memcpy4                                
+00005c63  __aeabi_memcpy8                                
+00005c63  memcpy                                         
+00005cff  __aeabi_uldivmod                               
+00005d95  __aeabi_memclr                                 
+00005d95  __aeabi_memclr4                                
+00005d95  __aeabi_memclr8                                
+00005d97  __aeabi_memset                                 
+00005d97  __aeabi_memset4                                
+00005d97  __aeabi_memset8                                
+00005d9d  memset                                         
+00005e0f  __aeabi_ldivmod                                
+00005e7d  __TI_decompress_lzss                           
+00005ee5  LM35_getTemperature                            
+00005f3d  GPTM_WTimer0Init                               
+00005f6d  GPTM_WTimer0Read                               
+00005f91  __aeabi_d2iz                                   
+00005fd9  __TI_auto_init_nobinit_nopinit                 
+0000601d  _c_int00_noargs                                
+00006051  __aeabi_ui2d                                   
+00006071  __TI_decompress_none                           
+0000607f  __TI_zero_init                                 
+0000608b  main                                           
+00006097  ResetISR                                       
+000060a3  _system_pre_init                               
+000060a7  C$$EXIT                                        
+000060a7  abort                                          
+000060ac  ulMaxSyscallInterruptPriority                  
+000060b4  uxTopUsedPriority                              
+00006120  __TI_Handler_Table_Base                        
+0000612c  __TI_Handler_Table_Limit                       
+00006138  __TI_CINIT_Base                                
+00006148  __TI_CINIT_Limit                               
+20000000  __start___llvm_prf_cnts                        
+20000000  __stop___llvm_prf_cnts                         
+20002060  DiagnosticsArray                               
+200020b0  ullTasksExecutionTime                          
+200020e8  ullTasksInTime                                 
+20002120  ullTasksOutTime                                
+20002158  ullTasksTotalTime                              
+2000223c  DriverControlTempTaskHandler                   
+20002240  DriverDisplayStateTaskHandler                  
+20002244  DriverHeatingTaskHandler                       
+20002248  DriverMonitorTempTaskHandler                   
+2000224c  DriverSeatButtonTaskHandler                    
+20002250  DriverSeatFailureHandlingTaskHandler           
+20002254  PassengerControlTempTaskHandler                
+20002258  PassengerDisplayStateTaskHandler               
+2000225c  PassengerHeatingTaskHandler                    
+20002260  PassengerMonitorTempTaskHandler                
+20002264  PassengerSeatButtonTaskHandler                 
+20002268  PassengerSeatFailureHandlingTaskHandler        
+2000226c  RunTimeMeasurementsTaskHandler                 
+20002270  desired_temp_mutex                             
+20002274  driver_seat_failure_queue                      
+20002278  heater_intensity_mutex                         
+2000227c  passenger_seat_failure_queue                   
+20002280  uart_mutex                                     
+20002284  xDriverButtonSemaphore1                        
+20002288  xDriverButtonSemaphore2                        
+2000228c  xHeaterIntensitySemaphore                      
+20002290  xPassengerButtonSemaphore                      
+20002298  __stack                                        
+20002498  __STACK_END                                    
+20002498  __STACK_TOP                                    
+20002498  pxCurrentTCB                                   
+200024cc  driver_seat_button_task_parameters             
+200024dc  driver_seat_control_task_parameters            
+200024ec  driver_seat_display_task_parameters            
+200024fc  passenger_seat_button_task_parameters          
+2000250c  passenger_seat_control_task_parameters         
+2000251c  passenger_seat_display_task_parameters         
+2000252c  driver_seat_failuer_handling_task_parameters   
+20002538  passenger_seat_failuer_handling_task_parameters
+2000255c  driver_seat_heater_level                       
+2000255d  driver_seat_prev_heater_level                  
+2000255e  passenger_seat_heater_level                    
+2000255f  passenger_seat_prev_heater_level               
+20002560  driver_seat_current_temp                       
+20002561  passenger_seat_current_temp                    
+20002562  driver_seat_heater_intensity                   
+20002563  passenger_seat_heater_intensity                
+20002564  Diagnostics_index                              
+20002565  driver_error_code                              
+20002566  passenger_error_code                           
+20002568  driver_seat_heating_task_parameters            
+20002570  driver_seat_monitor_task_parameters            
+20002580  passenger_seat_heating_task_parameters         
+20002588  passenger_seat_monitor_task_parameters         
+20002590  driver_heater                                  
+20002594  passenger_heater                               
+ffffffff  __TI_pprof_out_hndl                            
+ffffffff  __TI_prof_data_size                            
+ffffffff  __TI_prof_data_start                           
+ffffffff  __binit__                                      
+ffffffff  __c_args__                                     
+ffffffff  binit                                          
+UNDEFED   __mpu_init                                     
+UNDEFED   _system_post_cinit                             
+
+[260 symbols]
